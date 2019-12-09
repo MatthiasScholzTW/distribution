@@ -116,6 +116,7 @@ storage:
   s3:
     accesskey: awsaccesskey
     secretkey: awssecretkey
+    sessiontoken: awssessiontoken
     region: us-west-1
     regionendpoint: http://myobjects.local
     bucket: bucketname
@@ -417,6 +418,7 @@ storage:
   s3:
     accesskey: awsaccesskey
     secretkey: awssecretkey
+    sessiontoken: awssessiontoken
     region: us-west-1
     regionendpoint: http://myobjects.local
     bucket: bucketname

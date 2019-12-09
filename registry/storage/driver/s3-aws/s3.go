@@ -165,6 +165,7 @@ type Driver struct {
 // Required parameters:
 // - accesskey
 // - secretkey
+// - sessiontoken
 // - region
 // - bucket
 // - encrypt
@@ -339,7 +340,10 @@ func FromParameters(parameters map[string]interface{}) (*Driver, error) {
 		objectACL = objectACLString
 	}
 
-	sessionToken := ""
+	sessionToken := parameters["sessiontoken"]
+	if sessionToken == nil {
+		sessionToken = ""
+	}
 
 	params := DriverParameters{
 		fmt.Sprint(accessKey),
