@@ -25,8 +25,8 @@ var s3DriverConstructor func(rootDirectory, storageClass string) (*Driver, error
 var skipS3 func() string
 
 func init() {
-	accessKey := os.Getenv("AWS_ACCESS_KEY")
-	secretKey := os.Getenv("AWS_SECRET_KEY")
+	accessKey := os.Getenv("AWS_ACCESS_KEY_ID")
+	secretKey := os.Getenv("AWS_SECRET_ACCESS_KEY")
 	bucket := os.Getenv("S3_BUCKET")
 	encrypt := os.Getenv("S3_ENCRYPT")
 	keyID := os.Getenv("S3_KEY_ID")
@@ -104,7 +104,7 @@ func init() {
 	// Skip S3 storage driver tests if environment variable parameters are not provided
 	skipS3 = func() string {
 		if accessKey == "" || secretKey == "" || region == "" || bucket == "" || encrypt == "" {
-			return "Must set AWS_ACCESS_KEY, AWS_SECRET_KEY, AWS_REGION, S3_BUCKET, and S3_ENCRYPT to run S3 tests"
+			return "Must set AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, S3_BUCKET, and S3_ENCRYPT to run S3 tests"
 		}
 		return ""
 	}
